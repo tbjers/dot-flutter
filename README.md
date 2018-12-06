@@ -1,5 +1,5 @@
-# tbjers/flutter
-Just a bunch of dotfiles.
+# tbjers/dot-flutter
+Dot files and installation for Flutter.
 
 ## Install
 Clone and symlink or install with [ellipsis][ellipsis]:
