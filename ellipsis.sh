@@ -15,13 +15,13 @@ pkg.install() {
   brew install ios-deploy
   brew install cocoapods
   pod setup
-  [ ! -d "$FLUTTER_DIRECTORY" ] && mkdir -p "$FLUTTER_DIRECTORY" && \
-    curl -o "/tmp/{$FLUTTER_FILE}" "https://storage.googleapis.com/flutter_infra/releases/stable/macos/${FLUTTER_FILE}" && \
-    cd "$(dirname "$FLUTTER_DIRECTORY")" || exit "Could not enter base directory to install Flutter." && \
-    unzip "/tmp/${FLUTTER_FILE}" && \
-    cd "${FLUTTER_DIRECTORY}" || exit "Could not enter Flutter directory." && \
-    [ ! -f "${FLUTTER_DIRECTORY}/bin/flutter" ] && exit "Could not find Flutter binary." && \
-    $("${FLUTTER_DIRECTORY}/bin/flutter") doctor -v
+  [ ! -d "$FLUTTER_DIRECTORY" ] && mkdir -p "$FLUTTER_DIRECTORY"
+  curl -o "/tmp/{$FLUTTER_FILE}" "https://storage.googleapis.com/flutter_infra/releases/stable/macos/${FLUTTER_FILE}"
+  cd "$(dirname "$FLUTTER_DIRECTORY")" || exit "Could not enter base directory to install Flutter."
+  unzip "/tmp/$FLUTTER_FILE"
+  cd "${FLUTTER_DIRECTORY}" || exit "Could not enter Flutter directory."
+  [ ! -f "${FLUTTER_DIRECTORY}/bin/flutter" ] && exit "Could not find Flutter binary."
+  $("${FLUTTER_DIRECTORY}/bin/flutter") doctor -v
 }
 
 # The following hooks can be defined to customize behavior of your package:
