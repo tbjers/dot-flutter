@@ -17,7 +17,7 @@ pkg.install() {
   pod setup
   [ ! -d "$FLUTTER_DIRECTORY" ] && mkdir -p "$FLUTTER_DIRECTORY"
   curl -o "/tmp/{$FLUTTER_FILE}" "https://storage.googleapis.com/flutter_infra/releases/stable/macos/${FLUTTER_FILE}"
-  cd "$(basename "$FLUTTER_DIRECTORY")" || exit "Could not enter base directory to install Flutter."
+  cd "$(dirname "$FLUTTER_DIRECTORY")" || exit "Could not enter base directory to install Flutter."
   unzip "/tmp/${FLUTTER_FILE}"
   cd "${FLUTTER_DIRECTORY}" || exit "Could not enter Flutter directory."
   [ ! -f "${FLUTTER_DIRECTORY}/bin/flutter" ] && exit "Could not find Flutter binary."
